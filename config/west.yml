@@ -4,13 +4,15 @@ manifest:
       url-base: https://github.com/petejohanson
     - name: badjeff
       url-base: https://github.com/badjeff
+    - name: megaqzs
+      url-base: https://github.com/megaqzs
   projects:
     - name: zmk
       remote: zmkfirmware
       revision: feat/pointers-with-input-processors
       import: app/west.yml
     - name: zmk-pmw3610-driver
-      remote: badjeff
+      remote: megaqzs
       revision: main
     - name: zmk-input-behavior-listener
       remote: badjeff
