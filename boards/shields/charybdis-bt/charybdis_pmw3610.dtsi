@@ -43,12 +43,13 @@
         reg = <0>;
         cs-gpios = <&gpio0 20 GPIO_ACTIVE_LOW>;
         spi-max-frequency = <2000000>;
-        irq-gpios = <&gpio1 13 (GPIO_ACTIVE_LOW)>;
+        irq-gpios = <&gpio0 6 (GPIO_ACTIVE_LOW)>;
         cpi = <1000>;
         evt-type = <INPUT_EV_REL>;
         x-input-code = <INPUT_REL_X>;
         y-input-code = <INPUT_REL_Y>;
     };
 };
+
 
 
