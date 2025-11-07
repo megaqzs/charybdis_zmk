@@ -31,6 +31,10 @@
     status = "okay";
 };
 
+&uart0 {
+    status = "okay";
+};
+
 &trackball {
     status = "okay";
 };
@@ -42,6 +46,7 @@
     device = <&trackball>;
   };
 };
+
 
 
 
