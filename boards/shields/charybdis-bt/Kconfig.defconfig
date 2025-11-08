@@ -21,3 +21,5 @@ config ZMK_SPLIT
 	
 endif
 
+config UART_0_INTERRUPT_DRIVEN
+    depends on !ZMK_SPLIT_WIRED_UART_MODE_ASYNC
