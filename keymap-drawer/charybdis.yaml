@@ -628,12 +628,18 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   FN:
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   - EP TOG
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -678,12 +684,6 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
 combos:
 - p: [50, 51]
   k: {t: QUERTZ, h: toggle}
@@ -694,7 +694,7 @@ combos:
 - p: [47, 36]
   k: {t: GAME, h: toggle}
   l: [QUERTZ, MAC, FN]
-- p: [41, 42]
+- p: [11, 23]
   k: {t: FN, h: toggle}
   l: [QUERTZ, MAC, GAME]
 - p: [31, 28]
