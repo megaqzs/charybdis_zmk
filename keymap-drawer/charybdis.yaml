@@ -694,7 +694,7 @@ combos:
 - p: [47, 36]
   k: {t: GAME, h: toggle}
   l: [QUERTZ, MAC, FN]
-- p: [11, 23]
+- p: [22, 23]
   k: {t: FN, h: toggle}
   l: [QUERTZ, MAC, GAME]
 - p: [31, 28]

@@ -106,7 +106,7 @@
 
         to-FN {
             bindings = <&to 11>;
-            key-positions = <11 23>;
+            key-positions = <22 23>;
             layers = <0 3 6>;
         };
 
