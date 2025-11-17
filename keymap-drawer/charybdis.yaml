@@ -52,9 +52,9 @@ layers:
   - LGUI
   - SPACE
   - DEL
-  - {t: BACK SPACE, h: SYM}
+  - {t: BACK SPACE, h: NAV}
   - SPACE
-  - {t: TAB, h: NAV}
+  - {t: TAB, h: SYM}
   - BACK SPACE
   - ENTER
   NAV:
@@ -109,9 +109,9 @@ layers:
   - KP 0
   - VOLUME UP
   - VOLUME DOWN
-  - ADJ
+  - {t: ADJ, type: held}
   - {t: ▽, type: trans}
-  - {type: held}
+  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - KP DOT
   SYM:
@@ -166,9 +166,9 @@ layers:
   - VOLUME DOWN
   - VOLUME UP
   - {t: ▽, type: trans}
-  - {type: held}
+  - {t: ▽, type: trans}
   - PLAY PAUSE
-  - ADJ
+  - {t: ADJ, type: held}
   - {t: ▽, type: trans}
   - {t: FAST FORWARD, h: toggle}
   ADJ:
