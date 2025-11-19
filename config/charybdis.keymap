@@ -122,28 +122,28 @@
     };
 
 #define MAP_MIRROR(l) \
-        G(11,l) G(10,l) G(9,l)  G(8,l)  G(7,l)  G(6,l)   G(5,l)  G(4,l)  G(3,l)  G(2,l)  G(1,l)  G(0,l) \
-        G(23,l) G(22,l) G(21,l) G(20,l) G(19,l) G(18,l)  G(17,l) G(16,l) G(15,l) G(14,l) G(13,l) G(12,l) \
-        G(35,l) G(34,l) G(33,l) G(32,l) G(31,l) G(30,l)  G(29,l) G(28,l) G(27,l) G(26,l) G(25,l) G(24,l) \
-        G(47,l) G(46,l) G(45,l) G(44,l) G(43,l) G(42,l)  G(41,l) G(40,l) G(39,l) G(38,l) G(37,l) G(36,l) \
-                                G(48,l) G(52,l) G(51,l)  G(50,l) G(49,l) \
-                                        G(55,l) G(54,l)  G(53,l)
+        _G(11,l) _G(10,l) _G(9,l)  _G(8,l)  _G(7,l)  _G(6,l)   _G(5,l)  _G(4,l)  _G(3,l)  _G(2,l)  _G(1,l)  _G(0,l) \
+        _G(23,l) _G(22,l) _G(21,l) _G(20,l) _G(19,l) _G(18,l)  _G(17,l) _G(16,l) _G(15,l) _G(14,l) _G(13,l) _G(12,l) \
+        _G(35,l) _G(34,l) _G(33,l) _G(32,l) _G(31,l) _G(30,l)  _G(29,l) _G(28,l) _G(27,l) _G(26,l) _G(25,l) _G(24,l) \
+        _G(47,l) _G(46,l) _G(45,l) _G(44,l) _G(43,l) _G(42,l)  _G(41,l) _G(40,l) _G(39,l) _G(38,l) _G(37,l) _G(36,l) \
+                                _G(48,l) _G(52,l) _G(51,l)  _G(50,l) _G(49,l) \
+                                        _G(55,l) _G(54,l)  _G(53,l)
 
 #define MAP_MIRROR_L(l) \
-        &trans &trans &trans &trans &trans &trans   G(5,l)  G(4,l)  G(3,l)  G(2,l)  G(1,l)  G(0,l) \
-        &trans &trans &trans &trans &trans &trans   G(17,l) G(16,l) G(15,l) G(14,l) G(13,l) G(12,l) \
-        &trans &trans &trans &trans &trans &trans   G(29,l) G(28,l) G(27,l) G(26,l) G(25,l) G(24,l) \
-        &trans &trans &trans &trans &trans &trans   G(41,l) G(40,l) G(39,l) G(38,l) G(37,l) G(36,l) \
-                             &trans &trans &trans   G(50,l) G(49,l) \
-                                    &trans &trans   G(53,l)
+        &trans &trans &trans &trans &trans &trans   _G(5,l)  _G(4,l)  _G(3,l)  _G(2,l)  _G(1,l)  _G(0,l) \
+        &trans &trans &trans &trans &trans &trans   _G(17,l) _G(16,l) _G(15,l) _G(14,l) _G(13,l) _G(12,l) \
+        &trans &trans &trans &trans &trans &trans   _G(29,l) _G(28,l) _G(27,l) _G(26,l) _G(25,l) _G(24,l) \
+        &trans &trans &trans &trans &trans &trans   _G(41,l) _G(40,l) _G(39,l) _G(38,l) _G(37,l) _G(36,l) \
+                             &trans &trans &trans   _G(50,l) _G(49,l) \
+                                    &trans &trans   _G(53,l)
 
 #define MAP_MIRROR_R(l) \
-        G(11,l) G(10,l) G(9,l)  G(8,l)  G(7,l)  G(6,l)   &trans &trans &trans &trans &trans &trans \
-        G(23,l) G(22,l) G(21,l) G(20,l) G(19,l) G(18,l)  &trans &trans &trans &trans &trans &trans \
-        G(35,l) G(34,l) G(33,l) G(32,l) G(31,l) G(30,l)  &trans &trans &trans &trans &trans &trans \
-        G(47,l) G(46,l) G(45,l) G(44,l) G(43,l) G(42,l)  &trans &trans &trans &trans &trans &trans \
-                                G(48,l) G(52,l) G(51,l)  &trans &trans \
-                                        G(55,l) G(54,l)  &trans
+        _G(11,l) _G(10,l) _G(9,l)  _G(8,l)  _G(7,l)  _G(6,l)   &trans &trans &trans &trans &trans &trans \
+        _G(23,l) _G(22,l) _G(21,l) _G(20,l) _G(19,l) _G(18,l)  &trans &trans &trans &trans &trans &trans \
+        _G(35,l) _G(34,l) _G(33,l) _G(32,l) _G(31,l) _G(30,l)  &trans &trans &trans &trans &trans &trans \
+        _G(47,l) _G(46,l) _G(45,l) _G(44,l) _G(43,l) _G(42,l)  &trans &trans &trans &trans &trans &trans \
+                                _G(48,l) _G(52,l) _G(51,l)  &trans &trans \
+                                        _G(55,l) _G(54,l)  &trans
 
 
     keymap {
