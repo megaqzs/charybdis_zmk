@@ -6,6 +6,7 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/pointing.h>
+#include "layer_reorder.h"
 
 / {
     // chosen { zmk,matrix_transform = &default_transform; };
@@ -120,59 +121,90 @@
         };
     };
 
+#define MAP_MIRROR(l) \
+        G(11,l) G(10,l) G(9,l)  G(8,l)  G(7,l)  G(6,l)   G(5,l)  G(4,l)  G(3,l)  G(2,l)  G(1,l)  G(0,l) \
+        G(23,l) G(22,l) G(21,l) G(20,l) G(19,l) G(18,l)  G(17,l) G(16,l) G(15,l) G(14,l) G(13,l) G(12,l) \
+        G(35,l) G(34,l) G(33,l) G(32,l) G(31,l) G(30,l)  G(29,l) G(28,l) G(27,l) G(26,l) G(25,l) G(24,l) \
+        G(47,l) G(46,l) G(45,l) G(44,l) G(43,l) G(42,l)  G(41,l) G(40,l) G(39,l) G(38,l) G(37,l) G(36,l) \
+                                G(48,l) G(52,l) G(51,l)  G(50,l) G(49,l) \
+                                        G(55,l) G(54,l)  G(53,l)
+
+#define MAP_MIRROR_L(l) \
+        &trans &trans &trans &trans &trans &trans   G(5,l)  G(4,l)  G(3,l)  G(2,l)  G(1,l)  G(0,l) \
+        &trans &trans &trans &trans &trans &trans   G(17,l) G(16,l) G(15,l) G(14,l) G(13,l) G(12,l) \
+        &trans &trans &trans &trans &trans &trans   G(29,l) G(28,l) G(27,l) G(26,l) G(25,l) G(24,l) \
+        &trans &trans &trans &trans &trans &trans   G(41,l) G(40,l) G(39,l) G(38,l) G(37,l) G(36,l) \
+                             &trans &trans &trans   G(50,l) G(49,l) \
+                                    &trans &trans   G(53,l)
+
+#define MAP_MIRROR_R(l) \
+        G(11,l) G(10,l) G(9,l)  G(8,l)  G(7,l)  G(6,l)   &trans &trans &trans &trans &trans &trans \
+        G(23,l) G(22,l) G(21,l) G(20,l) G(19,l) G(18,l)  &trans &trans &trans &trans &trans &trans \
+        G(35,l) G(34,l) G(33,l) G(32,l) G(31,l) G(30,l)  &trans &trans &trans &trans &trans &trans \
+        G(47,l) G(46,l) G(45,l) G(44,l) G(43,l) G(42,l)  &trans &trans &trans &trans &trans &trans \
+                                G(48,l) G(52,l) G(51,l)  &trans &trans \
+                                        G(55,l) G(54,l)  &trans
+
+
     keymap {
         compatible = "zmk,keymap";
 
         BASE {
-            bindings = <
-&kp GRAVE   &kp N1       &kp N2      &kp N3      &kp N4        &kp N5           &kp N6           &kp N7        &kp N8      &kp N9      &kp N0          &kp MINUS
-&kp TAB     &kp Q        &kp W       &kp E       &kp R         &kp T            &kp Y            &kp U         &kp I       &kp O       &kp P           &kp EQUAL
-&kp ESC     &mt LCTRL A  &mt LALT S  &mt LGUI D  &mt LSHIFT F  &kp G            &kp H            &mt RSHIFT J  &mt RGUI K  &mt RALT L  &mt RCTRL SEMI  &kp APOS
-&kp LSHIFT  &lt 3 Z      &kp X       &kp C       &kp V         &kp B            &kp N            &kp M         &kp COMMA   &kp DOT     &lt 3 SLASH     &kp RSHIFT
-                                     &kp LGUI    &kp SPACE     &kp DEL          &lt 1 BACKSPACE  &kp SPACE
-                                                 &lt 2 TAB     &kp BACKSPACE    &kp ENTER
-            >;
+#define BASE_LAYER \
+    (&kp GRAVE)   (&kp N1)       (&kp N2)      (&kp N3)      (&kp N4)        (&kp N5)           (&kp N6)           (&kp N7)        (&kp N8)      (&kp N9)      (&kp N0)          (&kp MINUS) \
+    (&kp TAB)     (&kp Q)        (&kp W)       (&kp E)       (&kp R)         (&kp T)            (&kp Y)            (&kp U)         (&kp I)       (&kp O)       (&kp P)           (&kp EQUAL) \
+    (&kp ESC)     (&mt LCTRL A)  (&mt LALT S)  (&mt LGUI D)  (&mt LSHIFT F)  (&kp G)            (&kp H)            (&mt RSHIFT J)  (&mt RGUI K)  (&mt RALT L)  (&mt RCTRL SEMI)  (&kp APOS) \
+    (&kp LSHIFT)  (&lt 5 Z)      (&kp X)       (&kp C)       (&kp V)         (&kp B)            (&kp N)            (&kp M)         (&kp COMMA)   (&kp DOT)     (&lt 5 SLASH)     (&kp RSHIFT) \
+                                               (&kp LGUI)    (&lt 2 SPACE)   (&kp DEL)          (&lt 3 BACKSPACE)  (&lt 1 SPACE) \
+                                                             (&lt 2 TAB)     (&kp BACKSPACE)    (&kp ENTER)
+            bindings = <BASE_LAYER>;
+        };
+        BASE_LMIRROR {
+            bindings = <MAP_MIRROR_L(BASE_LAYER)>;
+        };
+        BASE_RMIRROR {
+            bindings = <MAP_MIRROR_R(BASE_LAYER)>;
         };
 
         NAV {
-            bindings = <
-&kp F12        &kp F1           &kp F2     &kp F3     &kp F4           &kp F5               &kp F6      &kp F7          &kp F8           &kp F9      &kp F10    &kp F11
-&kp KP_NUM     &kp KP_PLUS      &kp KP_N7  &kp KP_N8  &kp KP_N9        &kp LBRC             &kp RBRC    &kp SCROLLLOCK  &kp PAUSE_BREAK  &kp INSERT  &kp EQUAL  &trans
-&kp KP_DIVIDE  &kp KP_MINUS     &kp KP_N4  &kp KP_N5  &kp KP_N6        &kp LBKT             &kp RBKT    &kp LEFT        &kp DOWN         &kp UP      &kp RIGHT  &kp PRINTSCREEN
-&trans         &kp KP_MULTIPLY  &kp KP_N1  &kp KP_N2  &kp KP_N3        &kp LPAR             &kp RPAR    &kp DEL         &kp PG_UP        &kp CAPS    &kp PG_DN  &trans
-                                           &kp KP_N0  &kp C_VOLUME_UP  &kp C_VOLUME_DOWN    &mo 3       &trans
-                                                      &trans           &trans               &kp KP_DOT
-            >;
+#define NAV_LAYER \
+(&kp F12)        (&kp F1)           (&kp F2)     (&kp F3)     (&kp F4)           (&kp F5)               (&kp F6)      (&kp F7)          (&kp F8)           (&kp F9)      (&kp F10)    (&kp F11) \
+(&kp KP_NUM)     (&kp KP_PLUS)      (&kp KP_N7)  (&kp KP_N8)  (&kp KP_N9)        (&kp LBRC)             (&kp RBRC)    (&kp SCROLLLOCK)  (&kp PAUSE_BREAK)  (&kp INSERT)  (&kp EQUAL)  (&trans) \
+(&kp KP_DIVIDE)  (&kp KP_MINUS)     (&kp KP_N4)  (&kp KP_N5)  (&kp KP_N6)        (&kp LBKT)             (&kp RBKT)    (&kp LEFT)        (&kp DOWN)         (&kp UP)      (&kp RIGHT)  (&kp PRINTSCREEN) \
+(&trans)         (&kp KP_MULTIPLY)  (&kp KP_N1)  (&kp KP_N2)  (&kp KP_N3)        (&kp LPAR)             (&kp RPAR)    (&kp DEL)         (&kp PG_UP)        (&kp CAPS)    (&kp PG_DN)  (&trans) \
+                                                 (&kp KP_N0)  (&kp C_VOLUME_UP)  (&kp C_VOLUME_DOWN)    (&mo 5)       (&trans) \
+                                                              (&trans)           (&trans)               (&kp KP_DOT)
+            bindings = <NAV_LAYER>;
         };
 
         SYM {
-            bindings = <
-&kp F12  &kp F1         &kp F2     &kp F3             &kp F4            &kp F5           &kp F6              &kp F7            &kp F8     &kp F9        &kp F10        &kp F11
-&trans   &kp EXCL       &kp AT     &kp HASH           &kp DLLR          &kp PRCNT        &kp CARET           &kp AMPS          &kp STAR   &kp QUESTION  &kp SQT        &trans
-&trans   &kp PLUS       &kp EQUAL  &kp LPAR           &kp RPAR          &kp DQT          &kp COLON           &kp LBKT          &kp RBKT   &kp LBRC      &kp RBRC       &trans
-&trans   &kp LESS_THAN  &kp PIPE   &kp MINUS          &kp GREATER_THAN  &kp BACKSLASH    &kp GRAVE           &kp UNDERSCORE    &kp SLASH  &kp TILDE     &kp SEMICOLON  &trans
-                                   &kp C_VOLUME_DOWN  &kp C_VOLUME_UP   &trans           &trans              &kp C_PLAY_PAUSE
-                                                      &mo 3             &trans           &kt C_FAST_FORWARD
-            >;
+#define SYM_LAYER \
+(&kp F12)  (&kp F1)         (&kp F2)     (&kp F3)             (&kp F4)            (&kp F5)           (&kp F6)              (&kp F7)            (&kp F8)     (&kp F9)        (&kp F10)        (&kp F11) \
+(&trans)   (&kp EXCL)       (&kp AT)     (&kp HASH)           (&kp DLLR)          (&kp PRCNT)        (&kp CARET)           (&kp AMPS)          (&kp STAR)   (&kp QUESTION)  (&kp SQT)        (&trans) \
+(&trans)   (&kp PLUS)       (&kp EQUAL)  (&kp LPAR)           (&kp RPAR)          (&kp DQT)          (&kp COLON)           (&kp LBKT)          (&kp RBKT)   (&kp LBRC)      (&kp RBRC)       (&trans) \
+(&trans)   (&kp LESS_THAN)  (&kp PIPE)   (&kp MINUS)          (&kp GREATER_THAN)  (&kp BACKSLASH)    (&kp GRAVE)           (&kp UNDERSCORE)    (&kp SLASH)  (&kp TILDE)     (&kp SEMICOLON)  (&trans) \
+                                         (&kp C_VOLUME_DOWN)  (&kp C_VOLUME_UP)   (&trans)           (&trans)              (&kp C_PLAY_PAUSE) \
+                                                              (&mo 5)             (&trans)           (&kt C_FAST_FORWARD)
+            bindings = <SYM_LAYER>;
         };
 
         ADJ {
-            bindings = <
-&kp F12  &kp F1             &kp F2          &kp F3            &kp F4             &kp F5             &kp F6        &kp F7      &kp F8      &kp F9             &kp F10      &kp F11
-&trans   &sys_reset         &bt BT_PRV      &bt BT_NXT        &bt BT_CLR         &out OUT_TOG       &bt BT_SEL 0  &bt BT_CLR  &bt BT_PRV  &bt BT_NXT         &sys_reset   &trans
-&trans   &bootloader        &kp C_PREVIOUS  &kp C_PLAY_PAUSE  &kp C_NEXT         &kp C_MUTE         &bt BT_SEL 1  &trans      &trans      &ext_power EP_TOG  &bootloader  &trans
-&trans   &ext_power EP_TOG  &mo 5           &mo 4             &kp C_VOLUME_DOWN  &kp C_VOLUME_UP    &bt BT_SEL 2  &trans      &mo 4       &mo 5              &trans       &trans
-                                            &trans            &trans             &trans             &trans        &trans
-                                                              &trans             &trans             &trans
-            >;
+#define ADJ_LAYER \
+(&kp F12)  (&kp F1)             (&kp F2)          (&kp F3)            (&kp F4)             (&kp F5)             (&kp F6)        (&kp F7)      (&kp F8)      (&kp F9)             (&kp F10)      (&kp F11) \
+(&trans)   (&sys_reset)         (&bt BT_PRV)      (&bt BT_NXT)        (&bt BT_CLR)         (&out OUT_TOG)       (&bt BT_SEL 0)  (&bt BT_CLR)  (&bt BT_PRV)  (&bt BT_NXT)         (&sys_reset)   (&trans) \
+(&trans)   (&bootloader)        (&kp C_PREVIOUS)  (&kp C_PLAY_PAUSE)  (&kp C_NEXT)         (&kp C_MUTE)         (&bt BT_SEL 1)  (&trans)      (&trans)      (&ext_power EP_TOG)  (&bootloader)  (&trans) \
+(&trans)   (&ext_power EP_TOG)  (&mo 5)           (&mo 4)             (&kp C_VOLUME_DOWN)  (&kp C_VOLUME_UP)    (&bt BT_SEL 2)  (&trans)      (&mo 6)       (&mo 7)              (&trans)       (&trans) \
+                                                  (&trans)            (&trans)             (&trans)             (&trans)        (&trans) \
+                                                                      (&trans)             (&trans)             (&trans)
+            bindings = <ADJ_LAYER>;
         };
 
         SNIP {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans    &trans    &trans    &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans    &trans    &trans    &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &mkp MB1  &mkp MB2  &mkp MB3  &trans  &trans
-&trans  &trans  &mo 5   &trans  &trans  &trans    &trans  &trans    &trans    &mo 5     &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans    &trans    &trans    &trans    &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans    &trans    &trans    &trans    &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans    &trans    &trans    &trans    &trans
+&trans  &trans  &mo 5   &trans  &trans  &trans    &trans  &mkp MB1  &trans    &mkp MB2  &mkp MB3  &trans
                         &trans  &trans  &trans    &trans  &trans
                                 &trans  &trans    &trans
             >;
@@ -180,10 +212,10 @@
 
         SCROLL {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans    &trans    &trans    &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans    &trans    &trans    &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &mkp MB1  &mkp MB2  &mkp MB3  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans    &trans    &trans    &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans    &trans    &trans    &trans    &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans    &trans    &trans    &trans    &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans    &trans    &trans    &trans    &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &mkp MB1  &mkp MB2  &trans    &mkp MB3  &trans
                         &trans  &trans  &trans    &trans  &trans
                                 &trans  &trans    &trans
             >;
