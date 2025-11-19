@@ -1,7 +1,7 @@
-#define EMPTY(...)
+#define _LR_EMPTY(...)
 #define APPLY(M, ...) M __VA_ARGS__ )
 
-#define _GET_0(...) __VA_ARGS__ EMPTY(
+#define _GET_0(...) __VA_ARGS__ _LR_EMPTY(
 #define _GET_1(...) _GET_0
 #define _GET_2(...) _GET_1
 #define _GET_3(...) _GET_2
