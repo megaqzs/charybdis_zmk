@@ -18,7 +18,7 @@
     trackball_listener {
         compatible = "zmk,input-listener";
         device = <&vtrackball>;
-        input-processors = <&zip_xy_scaler 3 4>;
+        input-processors = <&zip_xy_scaler 1 1>;
         scroller {
             layers = <7>;
             input-processors = <&zip_xy_to_scroll_mapper>, <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
@@ -124,14 +124,14 @@
     (&kp ESC)     (&mt LCTRL A)  (&mt LALT S)  (&mt LGUI D)  (&mt LSHIFT F)  (&kp G)            (&kp H)            (&mt RSHIFT J)  (&mt RGUI K)  (&mt RALT L)  (&mt RCTRL SEMI)  (&kp APOS) \
     (&kp LSHIFT)  (&lt 5 Z)      (&kp X)       (&kp C)       (&kp V)         (&kp B)            (&kp N)            (&kp M)         (&kp COMMA)   (&kp DOT)     (&lt 5 SLASH)     (&kp RSHIFT) \
                                                (&kp LGUI)    (&lt 2 SPACE)   (&kp DEL)          (&lt 3 BACKSPACE)  (&lt 1 SPACE) \
-                                                             (&lt 2 TAB)     (&kp BACKSPACE)    (&kp ENTER)
+                                                             (&lt 4 TAB)     (&kp BACKSPACE)    (&kp ENTER)
             bindings = <
     &kp GRAVE   &kp N1       &kp N2      &kp N3      &kp N4        &kp N5           &kp N6           &kp N7        &kp N8      &kp N9      &kp N0          &kp MINUS
     &kp TAB     &kp Q        &kp W       &kp E       &kp R         &kp T            &kp Y            &kp U         &kp I       &kp O       &kp P           &kp EQUAL
     &kp ESC     &mt LCTRL A  &mt LALT S  &mt LGUI D  &mt LSHIFT F  &kp G            &kp H            &mt RSHIFT J  &mt RGUI K  &mt RALT L  &mt RCTRL SEMI  &kp APOS
     &kp LSHIFT  &lt 5 Z      &kp X       &kp C       &kp V         &kp B            &kp N            &kp M         &kp COMMA   &kp DOT     &lt 5 SLASH     &kp RSHIFT
                                                &kp LGUI    &lt 2 SPACE   &kp DEL          &lt 3 BACKSPACE  &lt 1 SPACE
-                                                             &lt 2 TAB     &kp BACKSPACE    &kp ENTER
+                                                             &lt 4 TAB     &kp BACKSPACE    &kp ENTER
             >;
         };
         BASE_LMIRROR {

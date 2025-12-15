@@ -54,7 +54,7 @@ layers:
   - DEL
   - {t: BACK SPACE, h: NAV}
   - {t: SPACE, h: BASE_LMIRROR}
-  - {t: TAB, h: BASE_RMIRROR}
+  - {t: TAB, h: SYM}
   - BACK SPACE
   - ENTER
   BASE_LMIRROR:
@@ -113,7 +113,7 @@ layers:
   - {t: SPACE, h: BASE_RMIRROR, type: held}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: TAB, h: BASE_RMIRROR}
+  - {t: TAB, h: SYM}
   BASE_RMIRROR:
   - '-'
   - '0'
@@ -282,7 +282,7 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - PLAY PAUSE
-  - ADJ
+  - {t: ADJ, type: held}
   - {t: ▽, type: trans}
   - {t: FAST FORWARD, h: toggle}
   ADJ:
